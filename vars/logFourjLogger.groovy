@@ -1,18 +1,20 @@
-//
-    @Grab(group='org.apache.logging.log4j', module='log4j-api', version='2.0.2')
-//)
-import org.apache.logging.log4j.Logger
-import org.apache.logging.log4j.LogManager
-import groovy.transform.Field
+@Grab(group='org.apache.logging.log4j', module='log4j', version='2.13.1')
+import org.apache.log4j.*
 
-def logInfo(String logMessage) {
+class LogLevels{
 
-    logger.info(logMessage)
+  def logInfo(String logMessage) {
+
+      logger.info(logMessage)
+
+  }
+
+  def logWarn(String logMessage) {
+
+      logger.warn(logMessage)
+
+  }
 
 }
 
-def logWarn(String logMessage) {
-
-    logger.warn(logMessage)
-
-}
+def logWrapper = new LogLevels()
