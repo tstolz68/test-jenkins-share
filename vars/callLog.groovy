@@ -1,7 +1,7 @@
 #!groovy
 //TODO: Put this in the header for shared library files
-Class Log4J = ((GroovyClassLoader) this.class.classLoader).parseClass new File("Log4JLogger.groovy")
-logger = Log4J.newInstance()
+//Class Log4J = ((GroovyClassLoader) this.class.classLoader).parseClass new File("Log4JLogger.groovy")
+//logger = Log4J.newInstance()
 //***
 
 def call(Map args) {
@@ -9,7 +9,7 @@ def call(Map args) {
 }
 
 def testOne() {
-    logger.logInfoLevel("This is an INFO message") 
+    Log4JLogger.logInfoLevel("This is an INFO message") 
 }
 
 //Test output here
