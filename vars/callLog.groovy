@@ -24,8 +24,8 @@ logInfoLevel("This is an INFO message")
 
 def testOne() {
    // Log4JLogger logClass = new Log4JLogger()
-
-    println("HERE WE ARE!!")
+    def logLevels = params.env_loglevel
+    println("HERE WE ARE!! - parameter value is: " + logLevels)
     //def file = new File('Log4JLogger.groovy') 
     //println "File? ${file.isFile()}" 
     evaluate(new File("./Log4JLogger.groovy"))
