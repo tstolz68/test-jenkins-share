@@ -7,6 +7,7 @@ this.metaClass.mixin script
 //*****
 
 def testOne() {
+    println("HERE WE ARE!!")
     logInfoLevel("This is an INFO message") 
 }
 
