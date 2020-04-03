@@ -1,37 +1,60 @@
 #!groovy
-@Grab(group='log4j', module='log4j', version='1.2.17') 
-import org.apache.log4j.*
+import java.util.logging.Level
+import java.util.logging.Logger
+import java.util.logging.ConsoleHandler
+import java.util.logging.FileHandler
+import groovy.transform.Field
 
-@groovy.util.logging.Log4j
+//customize error levels 
+class LogLevel extends Level {
+    public static final Level INFO = new LogLevel("INFO", 5000);
+    public static final Level DEBUG = new LogLevel("DEBUG", 6000);
+    public static final Level WARN = new LogLevel("WARN", 7000);
+    public static final Level ERROR = new LogLevel("ERROR", 8000);
+
+    public LogLevel(String name, int value) {
+        super(name, value)
+    }
+}
+
+Logger logger = Logger.getLogger(this.class.name)
+
+def logInfoLevel(message) {     
+    Logger logger = Logger.getLogger(this.class.name)
+    
+    logger.log(LogLevel.INFO, message)
+}
+
+/*
 class Log4jLogger {
 
-    static void logInfoLevel(String message) {
-        log.level = Level.INFO
-        log.removeAllAppenders()
-        log.addAppender(new ConsoleAppender(new PatternLayout("[%-p] %d %c: - %m%n")))
-        log.info message
+    public void logInfoLevel(String message) {        
+        logger.removeAllAppenders()
+        logger.addHandler(new ConsoleHandler());
+        logger.log(LogLevel.INFO, message)
     }
 
-    static void logDebugLevel(String message) {
-        log.level = Level.DEBUG
-        log.removeAllAppenders()
-        log.addAppender(new ConsoleAppender(new PatternLayout("[%-p] %d %c: - %m%n")))
-        log.debug message
+    //new PatternLayout("[%-p] %d %c: - %m%n")
+
+    public void logDebugLevel(String message) {
+        logger.removeAllAppenders()
+        logger.addHandler(new ConsoleHandler());
+        logger.log(LogLevel.DEBUG, message)
     }
 
-    static void logWarnLevel(String message) {
-        log.level = Level.WARN
-        log.removeAllAppenders()
-        log.addAppender(new ConsoleAppender(new PatternLayout("[%-p] %d %c: - %m%n")))
-        log.warn message
+    public void logWarnLevel(String message) {
+        logger.removeAllAppenders()
+        logger.addHandler(new ConsoleHandler());
+        logger.log(LogLevel.WARN, message)
     }
 
-    static void logErrorLevel(String message) {
-        log.level = Level.ERROR
-        log.removeAllAppenders()
-        log.addAppender(new ConsoleAppender(new PatternLayout("[%-p] %d %c: - %m%n")))
-        log.error message
+    public void logErrorLevel(String message) {
+        logger.removeAllAppenders()
+        logger.addHandler(new ConsoleHandler());
+        logger.log(LogLevel.ERROR, message)
     }
 
 }
+*/
+logInfoLevel("This is an INFO message") 
 
