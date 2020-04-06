@@ -29,7 +29,6 @@ logInfoLevel("This is an INFO message")
 //@BaseScript Log4JLogger 
 
 //logProcess.logInfoMessage("This is a test!"
-@NonCPS
 lh = new LogHandleMessages()
 
 @NonCPS
