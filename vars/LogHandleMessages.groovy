@@ -17,11 +17,10 @@ class LogLevel extends Level {
     }
 }
 
-@NonCPS
 class LogHandleMessages {
 
     //String logLevels = "INFO,WARN,ERROR" //params.env_loglevel
-
+    @NonCPS
     def logInfoMessage(String message, String logLevels) {
         Logger logger = Logger.getLogger(this.class.name)
 
@@ -30,6 +29,7 @@ class LogHandleMessages {
         }
     }
 
+    @NonCPS
     def logDebugMessage(String message, String logLevels) {
         Logger logger = Logger.getLogger(this.class.name)
 
@@ -38,6 +38,7 @@ class LogHandleMessages {
         }
     }
 
+    @NonCPS
     def logWarnMessage(String message, String logLevels) {
         Logger logger = Logger.getLogger(this.class.name)
 
@@ -45,7 +46,8 @@ class LogHandleMessages {
             logger.log(LogLevel.WARN, message)
         }
     }
-
+    
+    @NonCPS
     def logErrorMessage(String message, String logLevels) {
         Logger logger = Logger.getLogger(this.class.name)
 
