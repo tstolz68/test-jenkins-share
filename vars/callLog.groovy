@@ -1,4 +1,5 @@
 #!groovy
+//import groovy.transform.Field
 /*
 //***** Import Log Processor to handle log requests ****
 def script = new GroovyScriptEngine( '.' ).with {
@@ -22,17 +23,25 @@ logInfoLevel("This is an INFO message")
 */
 //import Log4JLogger.groovy
 
+//@Field logLevels = "INFO,ERROR" //params.env_loglevel
+//evaluate(new File("./Log4JLogger.groovy"))
+
+//@BaseScript Log4JLogger 
+
+//logProcess.logInfoMessage("This is a test!"
+
+lh = new LogHandleMessages()
+
 def testOne() {
-   // Log4JLogger logClass = new Log4JLogger()
-    def logLevels = params.env_loglevel
-    println("HERE WE ARE!! - parameter value is: " + logLevels)
+   
+    //println("HERE WE ARE!! - parameter value is: " + logLevels)
     //def file = new File('Log4JLogger.groovy') 
     //println "File? ${file.isFile()}" 
-    evaluate(new File("./Log4JLogger.groovy"))
-    logInfoLevel("This is an INFO message") 
-    
-    
+    //evaluate(new File("./Log4JLogger.groovy"))
+
+    lh.logInfoMessage("This is an INFO message")
+    lh.logErrorMessage("This is an ERROR message")
+
 }
-//return this
 
 testOne()
