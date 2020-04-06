@@ -4,6 +4,7 @@ import java.util.logging.Logger
 //import java.util.logging.ConsoleHandler
 //import java.util.logging.FileHandler
 import groovy.transform.Field
+import jenkins.model.Jenkins
 
 //customize error levels 
 class LogLevel extends Level {
