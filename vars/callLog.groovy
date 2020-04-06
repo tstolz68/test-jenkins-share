@@ -28,10 +28,6 @@ logInfoLevel("This is an INFO message")
 
 //@BaseScript Log4JLogger 
 
-//logProcess.logInfoMessage("This is a test!"
-lh = new LogHandleMessages()
-
-@NonCPS
 def testOne() {
    
     //println("HERE WE ARE!! - parameter value is: " + logLevels)
@@ -39,8 +35,8 @@ def testOne() {
     //println "File? ${file.isFile()}" 
     //evaluate(new File("./Log4JLogger.groovy"))
 
-    lh.logInfoMessage("This is an INFO message", logLevels)
-    lh.logErrorMessage("This is an ERROR message", logLevels)
+    LogHandleMessages.logInfoMessage("This is an INFO message", logLevels)
+    LogHandleMessages.logErrorMessage("This is an ERROR message", logLevels)
 
 }
 

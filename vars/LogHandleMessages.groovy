@@ -17,48 +17,34 @@ class LogLevel extends Level {
     }
 }
 
-class LogHandleMessages {
+def logInfoMessage(String message, String logLevels) {
+    Logger logger = Logger.getLogger(this.class.name)
 
-    //String logLevels = "INFO,WARN,ERROR" //params.env_loglevel
-    @NonCPS
-    def logInfoMessage(String message, String logLevels) {
-        Logger logger = Logger.getLogger(this.class.name)
-
-        if (logLevels.contains('INFO')) {
-            logger.log(LogLevel.INFO, message)
-        }
+    if (logLevels.contains('INFO')) {
+        logger.log(LogLevel.INFO, message)
     }
-
-    @NonCPS
-    def logDebugMessage(String message, String logLevels) {
-        Logger logger = Logger.getLogger(this.class.name)
-
-        if (logLevels.contains('DEBUG')) {
-            logger.log(LogLevel.DEBUG, message)
-        }
-    }
-
-    @NonCPS
-    def logWarnMessage(String message, String logLevels) {
-        Logger logger = Logger.getLogger(this.class.name)
-
-        if (logLevels.contains('WARN')) {
-            logger.log(LogLevel.WARN, message)
-        }
-    }
-    
-    @NonCPS
-    def logErrorMessage(String message, String logLevels) {
-        Logger logger = Logger.getLogger(this.class.name)
-
-        if (logLevels.contains('ERROR')) {
-            logger.log(LogLevel.ERROR, message)
-        }
-    }
-
 }
 
-//logProc = new LogConsoleHandler()
-//logProc.logInfoMessage("This is a test!")
+def logDebugMessage(String message, String logLevels) {
+    Logger logger = Logger.getLogger(this.class.name)
 
-//return this
+    if (logLevels.contains('DEBUG')) {
+        logger.log(LogLevel.DEBUG, message)
+    }
+}
+
+def logWarnMessage(String message, String logLevels) {
+    Logger logger = Logger.getLogger(this.class.name)
+
+    if (logLevels.contains('WARN')) {
+        logger.log(LogLevel.WARN, message)
+    }
+}
+
+def logErrorMessage(String message, String logLevels) {
+    Logger logger = Logger.getLogger(this.class.name)
+
+    if (logLevels.contains('ERROR')) {
+        logger.log(LogLevel.ERROR, message)
+    }
+}
