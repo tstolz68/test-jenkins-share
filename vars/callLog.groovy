@@ -35,8 +35,8 @@ def testOne() {
     //println "File? ${file.isFile()}" 
     //evaluate(new File("./Log4JLogger.groovy"))
 
-    LogHandleMessages.logInfoMessage("This is an INFO message", logLevels)
-    LogHandleMessages.logErrorMessage("This is an ERROR message", logLevels)
+    LogHandleMessages.info("This is an INFO message", logLevels)
+    LogHandleMessages.error("This is an ERROR message", logLevels)
 
 }
 

@@ -1,51 +1,29 @@
 #!groovy
-import java.util.logging.Level
-import java.util.logging.Logger
-//import java.util.logging.ConsoleHandler
-//import java.util.logging.FileHandler
-import groovy.transform.Field
-import jenkins.model.Jenkins
 
-//customize error levels 
-class LogLevel extends Level {
-    public static final Level INFO = new LogLevel("INFO", 5000);
-    public static final Level DEBUG = new LogLevel("DEBUG", 6000);
-    public static final Level WARN = new LogLevel("WARN", 7000);
-    public static final Level ERROR = new LogLevel("ERROR", 8000);
-
-    public LogLevel(String name, int value) {
-        super(name, value)
-    }
+def loadColors() {
+    NC='\033[0m'
+    RED='\033[0,31m'
+    GREEN='\033[0,32m'
+    BLUE='\033[0,34m'
+    CYAN='\033[0,36m'
 }
 
-def logInfoMessage(String message, String logLevels) {
-    Logger logger = Logger.getLogger(this.class.name)
-
-    if (logLevels.contains('INFO')) {
-        logger.log(LogLevel.INFO, message)
-    }
+def info(String message, String logLevels) {
+    loadColors()
+    sh """set +x; echo -e "${NC}[INFO] - $message ${NC}" """
 }
 
-def logDebugMessage(String message, String logLevels) {
-    Logger logger = Logger.getLogger(this.class.name)
-
-    if (logLevels.contains('DEBUG')) {
-        logger.log(LogLevel.DEBUG, message)
-    }
+def debug(String message, String logLevels) {
+    loadColors()
+    sh """set +x; echo -e "${GREEN}[INFO] - $message ${NC}" """
 }
 
-def logWarnMessage(String message, String logLevels) {
-    Logger logger = Logger.getLogger(this.class.name)
-
-    if (logLevels.contains('WARN')) {
-        logger.log(LogLevel.WARN, message)
-    }
+def warn(String message, String logLevels) {
+    loadColors()
+    sh """set +x; echo -e "${CYAN}[INFO] - $message ${NC}" """
 }
 
-def logErrorMessage(String message, String logLevels) {
-    Logger logger = Logger.getLogger(this.class.name)
-
-    if (logLevels.contains('ERROR')) {
-        logger.log(LogLevel.ERROR, message)
-    }
+def error(String message, String logLevels) {
+    loadColors()
+    sh """set +x; echo -e "${RED}[INFO] - $message ${NC}" """
 }
