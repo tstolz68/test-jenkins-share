@@ -7,7 +7,7 @@ def test() {
 }
 */
 
-def call(Map config) {
+def test() {
     //b = new Bar()
 
     Bar.logInfoMessage("This is an INFO message")
