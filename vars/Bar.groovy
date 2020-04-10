@@ -1,6 +1,6 @@
 import java.util.logging.Level
 import java.util.logging.Logger
-import groovy.transform.Field
+//import groovy.transform.Field
 
 //@Field logLevels = "INFO,ERROR" //params.env_loglevel
 
@@ -16,42 +16,42 @@ class LogLevel extends Level {
     }
 }
 
-class Bar{
+//class Bar{
 
-    String logLevels = "INFO,WARN,ERROR"
+String logLevels = "INFO,WARN,ERROR"
 
-    def logInfoMessage(message){
-        Logger logger = Logger.getLogger(this.class.name)
-        
-        if (this.logLevels.contains('INFO')) {
-            logger.log(LogLevel.INFO, message)
-        }
-    }
+def logInfoMessage(message, logLevels){
+    Logger logger = Logger.getLogger(this.class.name)
     
-     def logDebugMessage(message){
-        Logger logger = Logger.getLogger(this.class.name)
-        
-        if (this.logLevels.contains('DEBUG')) {
-            logger.log(LogLevel.DEBUG, message)
-        }
+    if (logLevels.contains('INFO')) {
+        logger.log(LogLevel.INFO, message)
     }
+}
+
+def logDebugMessage(message, logLevels){
+    Logger logger = Logger.getLogger(this.class.name)
     
-     def logWarnMessage(message){
-        Logger logger = Logger.getLogger(this.class.name)
-        
-        if (this.logLevels.contains('WARN')) {
-            logger.log(LogLevel.WARN, message)
-        }
+    if (logLevels.contains('DEBUG')) {
+        logger.log(LogLevel.DEBUG, message)
     }
+}
+
+def logWarnMessage(message, logLevels){
+    Logger logger = Logger.getLogger(this.class.name)
     
-     def logErrorMessage(message){
-        Logger logger = Logger.getLogger(this.class.name)
-        
-        if (this.logLevels.contains('ERROR')) {
-            logger.log(LogLevel.ERROR, message)
-        }
+    if (logLevels.contains('WARN')) {
+        logger.log(LogLevel.WARN, message)
     }
+}
+
+def logErrorMessage(message, logLevels){
+    Logger logger = Logger.getLogger(this.class.name)
     
+    if (logLevels.contains('ERROR')) {
+        logger.log(LogLevel.ERROR, message)
+    }
+}
+
  
    
-}
+//}
