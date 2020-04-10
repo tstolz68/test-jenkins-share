@@ -1,16 +1,16 @@
 #!groovy
 import groovy.transform.Field
 
-@Field logLevels = params.env_loglevel
+//@Field logLevels = params.env_loglevel
 
-//LogHandler = new LogHandleMessages()
+LogHandler = new LogHandleMessages()
 
 def testOne() {
 
     println "MADE IT TO testOne()"
     //LogHandleMessages.info("This is an INFO message", logLevels)
     //LogHandleMessages.error("This is an ERROR message", logLevels)
-    LogHandleMessages.call()
+    LogHandler.info("This is an INFO message", "INFO")
 
 }
 
