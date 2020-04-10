@@ -8,6 +8,10 @@ def loadColors() {
     CYAN='\033[0;36m'
 }
 
+def call(Map body) {
+    println "HELLO, MADE IT TO LogHandleMessages!!"
+}
+
 def info(String message, String logLevels) {
     if (logLevels.contains('INFO')) {
         loadColors()

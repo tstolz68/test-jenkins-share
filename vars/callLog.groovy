@@ -7,8 +7,10 @@ import groovy.transform.Field
 
 def testOne() {
 
-    LogHandleMessages.info("This is an INFO message", logLevels)
-    LogHandleMessages.error("This is an ERROR message", logLevels)
+    println "MADE IT TO testOne()"
+    //LogHandleMessages.info("This is an INFO message", logLevels)
+    //LogHandleMessages.error("This is an ERROR message", logLevels)
+    LogHandleMessages.call()
 
 }
 
