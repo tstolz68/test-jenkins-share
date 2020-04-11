@@ -8,6 +8,8 @@ def loadColors() {
 
 def call(String message, String msgType, String logLevel) {
 
+    loadColors()
+
     switch(msgType) {
         case 'INFO':
             if (logLevel.contains('INFO')) {
