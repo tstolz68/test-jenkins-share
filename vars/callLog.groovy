@@ -3,15 +3,14 @@ import groovy.transform.Field
 
 @Field logLevels = params.env_loglevel
 
-//LogHandler = new LogHandleMessages()
-
 def testOne() {
-
-    println "MADE IT TO testOne()"
     //LogHandleMessages.info("This is an INFO message", logLevels)
     //LogHandleMessages.error("This is an ERROR message", logLevels)
     //LogHandler.info("This is an INFO message", "INFO")
     anotherLogTest("This is an INFO message", "INFO", logLevels)
+    anotherLogTest("This is an DEBUG message", "DEBUG", logLevels)
+    anotherLogTest("This is an WARN message", "WARN", logLevels)
+    anotherLogTest("This is an ERROR message", "ERROR", logLevels)
 
 }
 
